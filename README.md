@@ -21,7 +21,8 @@ The code repository for "Feature Boosting and Compression for Class-Incremental 
 <p align="center">
 <img src='imgs/boosting.png' width='900'>
 </p>
-***Feature Compression.*** In the second step, we aim to eliminate redundant parameters and meaningless dimensions caused by feature boosting. To achieve this goal, we propose an effective distillation strategy that can transfer knowledge from the boosting model to a single model with negligible performance loss, even if the data is limited when learning new tasks. 
+
+***Feature Compression***. In the second step, we aim to eliminate redundant parameters and meaningless dimensions caused by feature boosting. To achieve this goal, we propose an effective distillation strategy that can transfer knowledge from the boosting model to a single model with negligible performance loss, even if the data is limited when learning new tasks. 
 
 
  <p align="center">
