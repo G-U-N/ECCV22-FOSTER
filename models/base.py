@@ -2,14 +2,10 @@ from cProfile import label
 import copy
 import logging
 import numpy as np
-import sklearn
-from sqlalchemy import true
 import torch
 from torch import index_select, nn
 from torch.utils.data import DataLoader
 from utils.toolkit import tensor2numpy, accuracy
-from scipy.spatial.distance import cdist
-import matplotlib.pyplot as plt
 
 EPSILON = 1e-8
 batch_size = 64
