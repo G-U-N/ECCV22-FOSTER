@@ -16,6 +16,12 @@ The code repository for "Feature Boosting and Compression for Class-Incremental 
 
 *The ability to learn new concepts continually is necessary in this ever-changing world. However, deep neural networks suffer from catastrophic forgetting when learning new categories. Many works have been proposed to alleviate this phenomenon, whereas most of them either fall into the stability-plasticity dilemma or take too much computation or storage overhead.  Inspired by the gradient boosting algorithm to gradually fit the residuals between the target and the current approximation function, we propose a novel two-stage learning paradigm FOSTER, empowering the model to learn new categories adaptively.* 
 
+***Gradient Boosting***. we propose a novel perspective from gradient boosting to analyze and achieve the goal of class-incremental learning. Gradient boosting methods use the additive model to gradually converge the ground-truth target model where the subsequent one fits the residuals between the target and the prior one.
+
+<p align="center">
+<img src='imgs/gradientboosting.png' width='900'>
+</p>
+
 ***Feature Boosting***.  First, we create a new module to fit the residual between targets and the output of the original model, following the principle of gradient boosting. With reasonable simplification and deduction,  the optimization objective is transformed into the minimization of KL divergence of the target and the output of the concatenated model. To alleviate the classification bias caused by imbalanced training, we proposed logits alignment to balance the training of old and new classes. 
 
 <p align="center">
