@@ -13,6 +13,7 @@ from utils.toolkit import count_parameters, target2onehot, tensor2numpy
 
 EPSILON = 1e-8
 
+
 class FOSTER(BaseLearner):
     def __init__(self, args):
         super().__init__(args)
@@ -180,7 +181,8 @@ class FOSTER(BaseLearner):
                     logits/self.per_cls_weights, targets)
                 loss_fe = F.cross_entropy(fe_logits, targets)
                 loss_kd = self.lambda_okd * \
-                    _KD_loss(logits[:, :self._known_classes], old_logits, self.args["T"])
+                    _KD_loss(logits[:, :self._known_classes],
+                             old_logits, self.args["T"])
                 loss = loss_clf+loss_fe+loss_kd
                 optimizer.zero_grad()
                 loss.backward()
