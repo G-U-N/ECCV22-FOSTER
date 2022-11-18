@@ -41,11 +41,9 @@ def _train(args):
     _set_random()
     _set_device(args)
     print_args(args)
-<<<<<<< HEAD
+
     data_manager = DataManager(args['dataset'], args['shuffle'], args['seed'], args['init_cls'], args['increment'])
-=======
-    data_manager = DataManager(args['dataset'], args['shuffle'], args['seed'], args['init_cls'], args['increment'], args["model_name"])
->>>>>>> b0b97c5a6f5b3d78214aa4bb815a3e279d63909e
+
     model = factory.get_model(args['model_name'], args)
 
     cnn_curve, nme_curve = {'top1': [], 'top5': []}, {'top1': [], 'top5': []}
