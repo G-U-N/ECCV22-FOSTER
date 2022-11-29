@@ -21,13 +21,11 @@ The code repository for "Feature Boosting and Compression for Class-Incremental 
 <p align="center">
 <img src='imgs/gradientboosting.png' width='900'>
 </p>
-
 ***Feature Boosting***.  First, we create a new module to fit the residual between targets and the output of the original model, following the principle of gradient boosting. With reasonable simplification and deduction,  the optimization objective is transformed into the minimization of KL divergence of the target and the output of the concatenated model. To alleviate the classification bias caused by imbalanced training, we proposed logits alignment to balance the training of old and new classes.
 
 <p align="center">
 <img src='imgs/boosting.png' width='900'>
 </p>
-
 ***Feature Compression***. In the second step, we aim to eliminate redundant parameters and meaningless dimensions caused by feature boosting. To achieve this goal, we propose an effective distillation strategy that can transfer knowledge from the boosting model to a single model with negligible performance loss, even if the data is limited when learning new tasks.
 
 <p align="center">
@@ -38,6 +36,20 @@ The code repository for "Feature Boosting and Compression for Class-Incremental 
 
  Experimental results show that our method achieves state-of-the-art performance.
 
+**Results on CIFAR-100**
+
+| Protocols    | Reproduced Avg | Reported Avg |
+| ------------ | -------------- | ------------ |
+| B0 5 steps   | 73.88          | 72.54        |
+| B0 10 steps  | 73.10          | 72.81        |
+| B0 20 steps  | 70.59          | 70.65        |
+| B50 5 steps  | 71.08          | 70.10        |
+| B50 10 steps | 68.61          | 67.95        |
+| B50 25 steps | 64.95          | 63.83        |
+| B50 50 steps | 59.96          | -            |
+
+
+
 <img src='imgs/performance.png' width='900'>
 
 We visualize the grad-CAM before and after feature boosting. As shown in the figure~(top-left), the freeze CNN only focuses on the head of the birds, ignoring the rest of their bodies, while the new CNN learns that the whole body is important for classification, which is consistent with our claim. Similarly, the middle and right figures show that the new CNN also discovers some essential but ignored patterns of the mailbox, the dog, and the tennis.
@@ -45,6 +57,8 @@ We visualize the grad-CAM before and after feature boosting. As shown in the fig
 <img src='imgs/vis.png' width='900'>
 
 Please refer to our [[paper]](https://arxiv.org/abs/2204.04662)  for detailed results.
+
+
 
 ## Prerequisites
 
