@@ -89,11 +89,15 @@ class FOSTER(BaseLearner):
             self._init_train(train_loader, test_loader, optimizer, scheduler)
         else:
 
+            if isinstance(self.beta1,list):
+                beta1=self.beta1[self._cur_task-1]
+            else:
+                beta1=self.beta1
             cls_num_list = [self.samples_old_class]*self._known_classes+[
                 self.samples_new_class(i) for i in range(self._known_classes, self._total_classes)]
+            effective_num = 1.0 - np.power(beta1, cls_num_list)
 
-            effective_num = 1.0 - np.power(self.beta1, cls_num_list)
-            per_cls_weights = (1.0 - self.beta1) / np.array(effective_num)
+            per_cls_weights = (1.0 - beta1) / np.array(effective_num)
             per_cls_weights = per_cls_weights / \
                 np.sum(per_cls_weights) * len(cls_num_list)
 

@@ -60,17 +60,17 @@ The following packages are required to run the scripts:
 - Train CIFAR-100
 
   ```
-  python main.py --config=foster-cifar100.json
+  python main.py --config=./configs/cifar/b0inc10.json
   ```
 - Train ImageNet-100
 
   ```
-  python main.py --config=foster-imagenet100.json
+  python main.py --config=./configs/foster-imagenet100.json
   ```
 - Train FOSTER-RMM
 
   ```
-  python main.py --config=foster-rmm.json
+  python main.py --config=./configs/foster-rmm.json
   ```
 
 
