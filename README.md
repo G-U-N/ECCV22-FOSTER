@@ -41,7 +41,7 @@ The code repository for "Feature Boosting and Compression for Class-Incremental 
 | Protocols    | Reproduced Avg | Reported Avg |
 | ------------ | -------------- | ------------ |
 | B0 5 steps   | 73.88          | 72.54        |
-| B0 10 steps  | 73.10          | 72.81        |
+| B0 10 steps  | 73.10          | 72.90        |
 | B0 20 steps  | 70.59          | 70.65        |
 | B50 5 steps  | 71.08          | 70.10        |
 | B50 10 steps | 68.61          | 67.95        |
